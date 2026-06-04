@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AURÉA — Casa de Belleza de Lujo. Fórmulas de excepción, ingredientes raros, belleza atemporal.">
+  <meta name="description" content="NURAVELLE — Casa de Belleza de Lujo. Fórmulas de excepción, ingredientes raros, belleza atemporal.">
   <meta name="theme-color" content="#0A0A0A">
-  <title>AURÉA — Casa de Belleza de Lujo</title>
+  <title>NURAVELLE — Casa de Belleza de Lujo</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,38 +24,26 @@
       --cream:      #F0EDE8;
       --white:      #FFFFFF;
       --silver:     #B8B4A8;
+      --sage:       #6B7F5E;
+      --sage-light: #8A9E7A;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans:  'DM Sans', system-ui, sans-serif;
       --ease-luxury: cubic-bezier(0.25, 0.1, 0.25, 1);
       --ease-reveal:  cubic-bezier(0.16, 1, 0.3, 1);
-      --nav-h: 72px;
+      --nav-h: 76px;
       --section-pad: clamp(80px, 10vw, 140px);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--black);
-      color: var(--white);
-      overflow-x: hidden;
-    }
-
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: var(--font-sans); background: var(--black); color: var(--white); overflow-x: hidden; }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
     button { cursor: pointer; font-family: inherit; border: none; background: none; }
 
     /* REVEAL */
     .reveal {
-      opacity: 0;
-      transform: translateY(40px);
+      opacity: 0; transform: translateY(40px);
       transition: opacity 1s var(--ease-reveal), transform 1s var(--ease-reveal);
     }
     .reveal.delay-1 { transition-delay: 0.15s; }
@@ -64,53 +52,44 @@
     .reveal.delay-4 { transition-delay: 0.60s; }
     .reveal.visible  { opacity: 1; transform: translateY(0); }
 
-    /* NAV */
-    #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      z-index: 100;
+    /* ══════════════════════════════════════
+       LOGO SVG
+    ══════════════════════════════════════ */
+    .logo-svg-wrap {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+    }
+    .logo-svg-wrap svg { display: block; }
+
+    /* NAV */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h); z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 0 clamp(24px, 5vw, 64px);
       transition: background 0.6s var(--ease-luxury), border-color 0.6s var(--ease-luxury);
       border-bottom: 1px solid transparent;
     }
-    #nav.scrolled {
-      background: var(--black);
-      border-bottom-color: var(--dark-2);
-    }
+    #nav.scrolled { background: var(--black); border-bottom-color: var(--dark-2); }
+
     .nav-links { display: flex; gap: clamp(24px, 3vw, 48px); list-style: none; }
     .nav-links a {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gray-light);
+      font-family: var(--font-sans); font-size: 11px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-light);
       transition: color 0.3s;
     }
     .nav-links a:hover { color: var(--white); }
+
     .nav-logo {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(22px, 2.5vw, 28px);
-      letter-spacing: 0.25em;
-      color: var(--white);
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      position: absolute; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; justify-content: center;
     }
+
     .nav-right { display: flex; align-items: center; gap: 32px; }
     .nav-right a {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gray-light);
-      transition: color 0.3s;
+      font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gray-light); transition: color 0.3s;
     }
     .nav-right a:hover { color: var(--white); }
     .nav-icon { display: flex; align-items: center; color: var(--gray-light); transition: color 0.3s; cursor: pointer; }
@@ -118,127 +97,79 @@
 
     /* HERO */
     #hero {
-      position: relative;
-      height: 100vh;
-      min-height: 600px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      text-align: center;
+      position: relative; height: 100vh; min-height: 600px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      overflow: hidden; text-align: center;
     }
     .hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transform: scale(1.06);
-      transition: transform 0.1s linear;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      transform: scale(1.06); transition: transform 0.1s linear;
     }
     .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.52);
-      z-index: 1;
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.50); z-index: 1;
     }
     .hero-overlay::after {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 30%, rgba(0,0,0,0.55) 100%);
     }
     .hero-circle {
       position: absolute;
-      width: clamp(300px, 50vw, 700px);
-      height: clamp(300px, 50vw, 700px);
-      border-radius: 50%;
-      border: 1px solid rgba(200,200,200,0.12);
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      animation: pulse-circle 8s ease-in-out infinite;
-      z-index: 2;
+      width: clamp(300px, 50vw, 700px); height: clamp(300px, 50vw, 700px);
+      border-radius: 50%; border: 1px solid rgba(200,200,200,0.10);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      animation: pulse-circle 8s ease-in-out infinite; z-index: 2;
     }
     .hero-circle-2 {
       position: absolute;
-      width: clamp(450px, 70vw, 900px);
-      height: clamp(450px, 70vw, 900px);
-      border-radius: 50%;
-      border: 1px solid rgba(200,200,200,0.05);
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      animation: pulse-circle 8s ease-in-out infinite 1s;
-      z-index: 2;
+      width: clamp(450px, 70vw, 900px); height: clamp(450px, 70vw, 900px);
+      border-radius: 50%; border: 1px solid rgba(200,200,200,0.04);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      animation: pulse-circle 8s ease-in-out infinite 1s; z-index: 2;
     }
     @keyframes pulse-circle {
       0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
       50%       { opacity: 0.4; transform: translate(-50%, -50%) scale(1.04); }
     }
+
     .hero-content {
-      position: relative;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      position: relative; z-index: 3;
+      display: flex; flex-direction: column; align-items: center;
       gap: clamp(20px, 3vw, 32px);
     }
     .hero-eyebrow {
-      font-family: var(--font-sans);
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--silver);
-      opacity: 0;
-      transform: translateY(20px);
+      font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--silver);
+      opacity: 0; transform: translateY(20px);
       transition: opacity 1s var(--ease-reveal) 0.2s, transform 1s var(--ease-reveal) 0.2s;
     }
     .hero-title {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(3.2rem, 8.5vw, 9rem);
-      line-height: 1.0;
-      color: var(--white);
-      opacity: 0;
-      transform: translateY(30px);
+      font-family: var(--font-serif); font-style: italic; font-weight: 300;
+      font-size: clamp(3.2rem, 8.5vw, 9rem); line-height: 1.0; color: var(--white);
+      opacity: 0; transform: translateY(30px);
       transition: opacity 1.2s var(--ease-reveal) 0.5s, transform 1.2s var(--ease-reveal) 0.5s;
       text-shadow: 0 2px 40px rgba(0,0,0,0.3);
     }
     .hero-caption {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      opacity: 0;
-      transform: translateY(20px);
+      font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: rgba(255,255,255,0.50);
+      opacity: 0; transform: translateY(20px);
       transition: opacity 1s var(--ease-reveal) 0.9s, transform 1s var(--ease-reveal) 0.9s;
     }
     .hero-divider {
-      width: 1px; height: 40px;
-      background: rgba(255,255,255,0.2);
-      opacity: 0;
-      transition: opacity 1s var(--ease-reveal) 1.1s;
+      width: 1px; height: 40px; background: rgba(255,255,255,0.2);
+      opacity: 0; transition: opacity 1s var(--ease-reveal) 1.1s;
     }
     .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 40px;
-      border: 1px solid rgba(255,255,255,0.4);
-      font-family: var(--font-sans);
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--white);
-      opacity: 0;
-      transform: translateY(20px);
+      display: inline-flex; align-items: center; gap: 16px;
+      padding: 16px 40px; border: 1px solid rgba(255,255,255,0.4);
+      font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--white);
+      opacity: 0; transform: translateY(20px);
       transition:
-        opacity 1s var(--ease-reveal) 1.3s,
-        transform 1s var(--ease-reveal) 1.3s,
-        background 0.4s var(--ease-luxury),
-        border-color 0.4s var(--ease-luxury);
+        opacity 1s var(--ease-reveal) 1.3s, transform 1s var(--ease-reveal) 1.3s,
+        background 0.4s var(--ease-luxury), border-color 0.4s var(--ease-luxury);
       backdrop-filter: blur(4px);
     }
     .hero-cta:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
@@ -252,384 +183,162 @@
     .hero-loaded .hero-cta { opacity: 1; transform: translateY(0); }
 
     .hero-scroll-hint {
-      position: absolute;
-      bottom: 40px; left: 50%;
-      transform: translateX(-50%);
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 10px;
-      opacity: 0;
-      transition: opacity 1s var(--ease-reveal) 2s;
-      z-index: 3;
+      opacity: 0; transition: opacity 1s var(--ease-reveal) 2s; z-index: 3;
     }
     .hero-loaded .hero-scroll-hint { opacity: 1; }
     .hero-scroll-hint span {
-      font-family: var(--font-sans);
-      font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.3);
+      font-family: var(--font-sans); font-size: 9px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
     }
     .scroll-line { width: 1px; height: 40px; background: rgba(255,255,255,0.15); position: relative; overflow: hidden; }
     .scroll-line::after {
       content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%;
-      background: rgba(255,255,255,0.5);
-      animation: scroll-drop 2s ease-in-out infinite 2.5s;
+      background: rgba(255,255,255,0.5); animation: scroll-drop 2s ease-in-out infinite 2.5s;
     }
     @keyframes scroll-drop { 0% { top: -100%; } 100% { top: 200%; } }
 
     /* PHILOSOPHY */
-    #philosophy {
-      background: var(--white);
-      color: var(--black);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 80vh;
-    }
-    .philosophy-image-wrap {
-      overflow: hidden;
-      position: relative;
-    }
-    .philosophy-image-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      transition: transform 1.2s var(--ease-luxury);
-    }
+    #philosophy { background: var(--white); color: var(--black); display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
+    .philosophy-image-wrap { overflow: hidden; position: relative; }
+    .philosophy-image-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 1.2s var(--ease-luxury); }
     .philosophy-image-wrap:hover img { transform: scale(1.04); }
-
-    .philosophy-text {
-      padding: clamp(60px, 8vw, 120px) clamp(40px, 6vw, 100px);
-      display: flex; flex-direction: column; justify-content: center; gap: 32px;
-    }
-    .section-label {
-      font-family: var(--font-sans);
-      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-mid);
-    }
-    .philosophy-quote {
-      font-family: var(--font-serif);
-      font-style: italic; font-weight: 300;
-      font-size: clamp(2rem, 3.5vw, 3.2rem);
-      line-height: 1.25; color: var(--black);
-    }
-    .philosophy-body {
-      font-family: var(--font-sans);
-      font-size: 15px; font-weight: 300; line-height: 1.9; color: #555; max-width: 460px;
-    }
+    .philosophy-text { padding: clamp(60px, 8vw, 120px) clamp(40px, 6vw, 100px); display: flex; flex-direction: column; justify-content: center; gap: 32px; }
+    .section-label { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-mid); }
+    .philosophy-quote { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3.2rem); line-height: 1.25; color: var(--black); }
+    .philosophy-body { font-family: var(--font-sans); font-size: 15px; font-weight: 300; line-height: 1.9; color: #555; max-width: 460px; }
     .text-link {
       display: inline-flex; align-items: center; gap: 12px;
-      font-family: var(--font-sans);
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black);
-      border-bottom: 1px solid var(--black); padding-bottom: 4px;
+      font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--black); border-bottom: 1px solid var(--black); padding-bottom: 4px;
       transition: gap 0.4s var(--ease-luxury), opacity 0.3s; width: fit-content;
     }
     .text-link:hover { gap: 20px; opacity: 0.6; }
 
     /* FEATURED */
-    #featured {
-      background: var(--black);
-      padding: var(--section-pad) clamp(24px, 5vw, 64px);
-      text-align: center;
-    }
-    .featured-rule {
-      display: flex; align-items: center; gap: 24px;
-      margin-bottom: clamp(40px, 6vw, 80px);
-    }
-    .featured-rule::before, .featured-rule::after {
-      content: ''; flex: 1; height: 1px; background: var(--dark-2);
-    }
-    .featured-rule span {
-      font-family: var(--font-sans);
-      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-deep); white-space: nowrap;
-    }
-    .featured-subtitle {
-      font-family: var(--font-sans);
-      font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 16px;
-    }
-    .featured-title {
-      font-family: var(--font-serif);
-      font-style: italic; font-weight: 300;
-      font-size: clamp(2.5rem, 6vw, 6rem);
-      color: var(--white); margin-bottom: clamp(40px, 6vw, 64px);
-    }
-    .featured-image-wrap {
-      max-width: 420px; margin: 0 auto clamp(40px, 5vw, 56px);
-      overflow: hidden;
-    }
-    .featured-image {
-      width: 100%; aspect-ratio: 3 / 4;
-      object-fit: cover;
-      transition: transform 1s var(--ease-luxury);
-    }
+    #featured { background: var(--black); padding: var(--section-pad) clamp(24px, 5vw, 64px); text-align: center; }
+    .featured-rule { display: flex; align-items: center; gap: 24px; margin-bottom: clamp(40px, 6vw, 80px); }
+    .featured-rule::before, .featured-rule::after { content: ''; flex: 1; height: 1px; background: var(--dark-2); }
+    .featured-rule span { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-deep); white-space: nowrap; }
+    .featured-subtitle { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 16px; }
+    .featured-title { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(2.5rem, 6vw, 6rem); color: var(--white); margin-bottom: clamp(40px, 6vw, 64px); }
+    .featured-image-wrap { max-width: 420px; margin: 0 auto clamp(40px, 5vw, 56px); overflow: hidden; }
+    .featured-image { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; transition: transform 1s var(--ease-luxury); }
     .featured-image-wrap:hover .featured-image { transform: scale(1.04); }
-
-    .featured-desc {
-      font-family: var(--font-sans);
-      font-size: 14px; font-weight: 300; line-height: 1.9; color: var(--gray-light);
-      max-width: 480px; margin: 0 auto 12px;
-    }
-    .featured-price {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      color: var(--silver); margin-bottom: 32px;
-    }
+    .featured-desc { font-family: var(--font-sans); font-size: 14px; font-weight: 300; line-height: 1.9; color: var(--gray-light); max-width: 480px; margin: 0 auto 12px; }
+    .featured-price { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--silver); margin-bottom: 32px; }
     .btn-outline {
-      display: inline-flex; align-items: center; gap: 14px;
-      padding: 16px 40px;
-      border: 1px solid rgba(255,255,255,0.25);
-      color: var(--white);
-      font-family: var(--font-sans); font-size: 10px; font-weight: 400;
-      letter-spacing: 0.25em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 14px; padding: 16px 40px;
+      border: 1px solid rgba(255,255,255,0.25); color: var(--white);
+      font-family: var(--font-sans); font-size: 10px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase;
       transition: border-color 0.4s, background 0.4s, gap 0.4s var(--ease-luxury);
     }
     .btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); gap: 22px; }
 
     /* INGREDIENTS */
-    #ingredients {
-      background: var(--black-mid);
-      padding: var(--section-pad) clamp(24px, 5vw, 64px);
-      border-top: 1px solid var(--dark-2); border-bottom: 1px solid var(--dark-2);
-    }
+    #ingredients { background: var(--black-mid); padding: var(--section-pad) clamp(24px, 5vw, 64px); border-top: 1px solid var(--dark-2); border-bottom: 1px solid var(--dark-2); }
     .ingredients-header { text-align: center; margin-bottom: clamp(60px, 8vw, 100px); }
     .ingredients-header .section-label { color: var(--gray-deep); margin-bottom: 20px; }
-    .ingredients-header h2 {
-      font-family: var(--font-serif); font-style: italic; font-weight: 300;
-      font-size: clamp(1.8rem, 4vw, 3.5rem); color: var(--white);
-    }
-    .ingredients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
-    .ingredient-item {
-      padding: clamp(40px, 5vw, 60px) clamp(24px, 4vw, 48px);
-      border-right: 1px solid var(--dark-2); position: relative;
-    }
+    .ingredients-header h2 { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.8rem, 4vw, 3.5rem); color: var(--white); }
+    .ingredients-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .ingredient-item { padding: clamp(40px, 5vw, 60px) clamp(24px, 4vw, 48px); border-right: 1px solid var(--dark-2); position: relative; }
     .ingredient-item:last-child { border-right: none; }
-    .ingredient-num {
-      font-family: var(--font-serif); font-weight: 300;
-      font-size: clamp(3rem, 6vw, 6rem); color: var(--dark-2); line-height: 1;
-      margin-bottom: 24px; transition: color 0.8s var(--ease-luxury);
-    }
+    .ingredient-num { font-family: var(--font-serif); font-weight: 300; font-size: clamp(3rem, 6vw, 6rem); color: var(--dark-2); line-height: 1; margin-bottom: 24px; transition: color 0.8s var(--ease-luxury); }
     .ingredient-item.visible .ingredient-num { color: var(--gray-deep); }
-    .ingredient-name {
-      font-family: var(--font-serif); font-style: italic; font-weight: 400;
-      font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--white); margin-bottom: 16px; line-height: 1.2;
-    }
-    .ingredient-origin {
-      font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.25em;
-      text-transform: uppercase; color: var(--silver); margin-bottom: 20px;
-    }
-    .ingredient-desc {
-      font-family: var(--font-sans); font-size: 13px; font-weight: 300; line-height: 1.85; color: var(--gray-mid);
-    }
-    .ingredient-line {
-      position: absolute; bottom: 0; left: clamp(24px, 4vw, 48px);
-      width: 0; height: 1px; background: var(--silver);
-      transition: width 1.2s var(--ease-reveal);
-    }
+    .ingredient-name { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+    .ingredient-origin { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--silver); margin-bottom: 20px; }
+    .ingredient-desc { font-family: var(--font-sans); font-size: 13px; font-weight: 300; line-height: 1.85; color: var(--gray-mid); }
+    .ingredient-line { position: absolute; bottom: 0; left: clamp(24px, 4vw, 48px); width: 0; height: 1px; background: var(--silver); transition: width 1.2s var(--ease-reveal); }
     .ingredient-item.visible .ingredient-line { width: 40px; }
 
     /* PRODUCTS */
-    #products {
-      background: var(--pearl);
-      padding: var(--section-pad) clamp(24px, 5vw, 64px);
-      color: var(--black);
-    }
+    #products { background: var(--pearl); padding: var(--section-pad) clamp(24px, 5vw, 64px); color: var(--black); }
     .products-header { text-align: center; margin-bottom: clamp(60px, 8vw, 96px); }
     .products-header .section-label { margin-bottom: 20px; }
-    .products-header h2 {
-      font-family: var(--font-serif); font-style: italic; font-weight: 300;
-      font-size: clamp(2rem, 5vw, 4.5rem); color: var(--black); margin-bottom: 16px;
-    }
+    .products-header h2 { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(2rem, 5vw, 4.5rem); color: var(--black); margin-bottom: 16px; }
     .products-header p { font-family: var(--font-sans); font-size: 14px; font-weight: 300; color: #888; }
-    .products-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: clamp(16px, 2.5vw, 32px); max-width: 1200px; margin: 0 auto;
-    }
-    .product-card {
-      background: var(--white); position: relative; overflow: hidden; cursor: pointer;
-      transition: transform 0.5s var(--ease-luxury), box-shadow 0.5s var(--ease-luxury);
-    }
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.5vw, 32px); max-width: 1200px; margin: 0 auto; }
+    .product-card { background: var(--white); position: relative; overflow: hidden; cursor: pointer; transition: transform 0.5s var(--ease-luxury), box-shadow 0.5s var(--ease-luxury); }
     .product-card:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(0,0,0,0.10); }
     .product-image-wrap { position: relative; overflow: hidden; }
-    .product-image {
-      width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center;
-      transition: transform 0.8s var(--ease-luxury);
-    }
+    .product-image { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; transition: transform 0.8s var(--ease-luxury); }
     .product-card:hover .product-image { transform: scale(1.05); }
-    .product-badge {
-      position: absolute; top: 20px; left: 20px;
-      font-family: var(--font-sans); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--black); background: var(--pearl); padding: 6px 12px; z-index: 2;
-    }
+    .product-badge { position: absolute; top: 20px; left: 20px; font-family: var(--font-sans); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--black); background: var(--pearl); padding: 6px 12px; z-index: 2; }
     .product-info { padding: 24px 24px 0; }
-    .product-category {
-      font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--gray-mid); margin-bottom: 10px;
-    }
-    .product-name {
-      font-family: var(--font-serif); font-style: italic; font-weight: 400;
-      font-size: clamp(1.1rem, 1.8vw, 1.5rem); color: var(--black); line-height: 1.2; margin-bottom: 8px;
-    }
-    .product-tagline {
-      font-family: var(--font-sans); font-size: 12px; font-weight: 300; color: #999; line-height: 1.6; margin-bottom: 20px;
-    }
-    .product-footer {
-      padding: 0 24px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      border-top: 1px solid var(--cream); padding-top: 20px;
-    }
+    .product-category { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 10px; }
+    .product-name { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(1.1rem, 1.8vw, 1.5rem); color: var(--black); line-height: 1.2; margin-bottom: 8px; }
+    .product-tagline { font-family: var(--font-sans); font-size: 12px; font-weight: 300; color: #999; line-height: 1.6; margin-bottom: 20px; }
+    .product-footer { padding: 0 24px 24px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--cream); padding-top: 20px; }
     .product-price { font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; color: var(--black); }
-    .product-add {
-      font-family: var(--font-sans); font-size: 9px; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--black); padding: 10px 20px; border: 1px solid var(--black);
-      transition: background 0.3s var(--ease-luxury), color 0.3s var(--ease-luxury);
-    }
+    .product-add { font-family: var(--font-sans); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); padding: 10px 20px; border: 1px solid var(--black); transition: background 0.3s var(--ease-luxury), color 0.3s var(--ease-luxury); }
     .product-add:hover { background: var(--black); color: var(--white); }
 
     /* RITUAL */
     #ritual { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
-    .ritual-text {
-      background: var(--black);
-      padding: clamp(60px, 8vw, 120px) clamp(40px, 6vw, 100px);
-      display: flex; flex-direction: column; justify-content: center; gap: 40px;
-    }
-    .ritual-title {
-      font-family: var(--font-serif); font-style: italic; font-weight: 300;
-      font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1.1; color: var(--white);
-    }
+    .ritual-text { background: var(--black); padding: clamp(60px, 8vw, 120px) clamp(40px, 6vw, 100px); display: flex; flex-direction: column; justify-content: center; gap: 40px; }
+    .ritual-title { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1.1; color: var(--white); }
     .ritual-steps { display: flex; flex-direction: column; gap: 28px; }
     .ritual-step { display: grid; grid-template-columns: 32px 1fr; gap: 20px; align-items: start; }
     .step-num { font-family: var(--font-serif); font-weight: 300; font-size: 0.9rem; color: var(--gray-deep); padding-top: 2px; }
-    .step-content h4 {
-      font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--silver); margin-bottom: 6px;
-    }
+    .step-content h4 { font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--silver); margin-bottom: 6px; }
     .step-content p { font-family: var(--font-sans); font-size: 13px; font-weight: 300; line-height: 1.8; color: var(--gray-mid); }
-    .ritual-image-wrap { overflow: hidden; position: relative; }
-    .ritual-image {
-      width: 100%; height: 100%; min-height: 500px;
-      object-fit: cover; object-position: center;
-      transition: transform 1.2s var(--ease-luxury);
-    }
+    .ritual-image-wrap { overflow: hidden; }
+    .ritual-image { width: 100%; height: 100%; min-height: 500px; object-fit: cover; object-position: center; transition: transform 1.2s var(--ease-luxury); }
     .ritual-image-wrap:hover .ritual-image { transform: scale(1.04); }
 
     /* TESTIMONIAL */
-    #testimonial {
-      background: var(--white); color: var(--black);
-      padding: var(--section-pad) clamp(24px, 5vw, 64px); text-align: center;
-    }
+    #testimonial { background: var(--white); color: var(--black); padding: var(--section-pad) clamp(24px, 5vw, 64px); text-align: center; }
     .testimonial-inner { max-width: 760px; margin: 0 auto; }
-    .quote-mark {
-      font-family: var(--font-serif); font-size: clamp(4rem, 10vw, 8rem);
-      line-height: 0.6; color: var(--cream); display: block; margin-bottom: 24px;
-    }
-    .testimonial-text {
-      font-family: var(--font-serif); font-style: italic; font-weight: 300;
-      font-size: clamp(1.3rem, 2.8vw, 2.2rem); line-height: 1.5; color: var(--black); margin-bottom: 40px;
-    }
+    .quote-mark { font-family: var(--font-serif); font-size: clamp(4rem, 10vw, 8rem); line-height: 0.6; color: var(--cream); display: block; margin-bottom: 24px; }
+    .testimonial-text { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.3rem, 2.8vw, 2.2rem); line-height: 1.5; color: var(--black); margin-bottom: 40px; }
     .testimonial-author { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-    .testimonial-author span:first-child {
-      font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black);
-    }
+    .testimonial-author span:first-child { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black); }
     .testimonial-author span:last-child { font-family: var(--font-sans); font-size: 11px; color: var(--gray-mid); }
     .testimonial-rule { width: 40px; height: 1px; background: var(--gray-light); margin: 0 auto 24px; }
 
     /* GALLERY */
     #gallery { background: var(--black); padding: var(--section-pad) clamp(24px, 5vw, 64px); }
-    .gallery-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      margin-bottom: clamp(40px, 6vw, 64px);
-    }
-    .gallery-header h2 {
-      font-family: var(--font-serif); font-style: italic; font-weight: 300;
-      font-size: clamp(1.8rem, 4vw, 3.5rem); color: var(--white);
-    }
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(12, 1fr);
-      gap: clamp(8px, 1.5vw, 16px);
-    }
+    .gallery-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: clamp(40px, 6vw, 64px); }
+    .gallery-header h2 { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.8rem, 4vw, 3.5rem); color: var(--white); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(8px, 1.5vw, 16px); }
     .gallery-item { overflow: hidden; }
     .gallery-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
     .gallery-item:nth-child(2) { grid-column: span 7; }
     .gallery-item:nth-child(3) { grid-column: span 4; }
     .gallery-item:nth-child(4) { grid-column: span 3; }
-    .gallery-item img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      min-height: clamp(160px, 25vw, 320px);
-      display: block;
-      transition: transform 0.8s var(--ease-luxury);
-      cursor: pointer;
-    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; min-height: clamp(160px, 25vw, 320px); display: block; transition: transform 0.8s var(--ease-luxury); cursor: pointer; }
     .gallery-item:nth-child(1) img { min-height: clamp(320px, 50vw, 640px); }
     .gallery-item img:hover { transform: scale(1.04); }
 
     /* NEWSLETTER */
-    #newsletter {
-      background: var(--black); border-top: 1px solid var(--dark-2);
-      padding: var(--section-pad) clamp(24px, 5vw, 64px); text-align: center;
-    }
+    #newsletter { background: var(--black); border-top: 1px solid var(--dark-2); padding: var(--section-pad) clamp(24px, 5vw, 64px); text-align: center; }
     .newsletter-inner { max-width: 560px; margin: 0 auto; }
-    .newsletter-eyebrow {
-      font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.35em;
-      text-transform: uppercase; color: var(--gray-deep); margin-bottom: 20px;
-    }
-    .newsletter-title {
-      font-family: var(--font-serif); font-style: italic; font-weight: 300;
-      font-size: clamp(2rem, 4.5vw, 4rem); color: var(--white); margin-bottom: 16px;
-    }
-    .newsletter-sub {
-      font-family: var(--font-sans); font-size: 14px; font-weight: 300; line-height: 1.8;
-      color: var(--gray-mid); margin-bottom: clamp(36px, 5vw, 56px);
-    }
-    .newsletter-form {
-      display: flex; gap: 0; border-bottom: 1px solid var(--dark-2); margin-bottom: 20px;
-      transition: border-color 0.4s;
-    }
+    .newsletter-eyebrow { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gray-deep); margin-bottom: 20px; }
+    .newsletter-title { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(2rem, 4.5vw, 4rem); color: var(--white); margin-bottom: 16px; }
+    .newsletter-sub { font-family: var(--font-sans); font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--gray-mid); margin-bottom: clamp(36px, 5vw, 56px); }
+    .newsletter-form { display: flex; gap: 0; border-bottom: 1px solid var(--dark-2); margin-bottom: 20px; transition: border-color 0.4s; }
     .newsletter-form:focus-within { border-bottom-color: var(--silver); }
-    .newsletter-input {
-      flex: 1; background: none; border: none; outline: none;
-      font-family: var(--font-sans); font-size: 14px; font-weight: 300;
-      color: var(--white); padding: 16px 0; letter-spacing: 0.05em;
-    }
+    .newsletter-input { flex: 1; background: none; border: none; outline: none; font-family: var(--font-sans); font-size: 14px; font-weight: 300; color: var(--white); padding: 16px 0; letter-spacing: 0.05em; }
     .newsletter-input::placeholder { color: var(--gray-deep); }
-    .newsletter-submit {
-      font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--silver); padding: 16px 0 16px 24px; background: none; border: none; cursor: pointer;
-      transition: color 0.3s;
-    }
+    .newsletter-submit { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--silver); padding: 16px 0 16px 24px; background: none; border: none; cursor: pointer; transition: color 0.3s; }
     .newsletter-submit:hover { color: var(--white); }
     .newsletter-gdpr { font-family: var(--font-sans); font-size: 11px; color: var(--gray-deep); line-height: 1.7; }
     .newsletter-gdpr a { color: var(--gray-mid); border-bottom: 1px solid var(--dark-2); transition: color 0.3s; }
     .newsletter-gdpr a:hover { color: var(--gray-light); }
 
     /* FOOTER */
-    footer {
-      background: var(--black); border-top: 1px solid var(--dark-2);
-      padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 64px) clamp(32px, 4vw, 48px);
-    }
-    .footer-top {
-      display: flex; align-items: flex-start; justify-content: space-between;
-      margin-bottom: clamp(40px, 6vw, 64px); gap: 40px; flex-wrap: wrap;
-    }
-    .footer-logo {
-      font-family: var(--font-serif); font-style: italic; font-weight: 300;
-      font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: 0.25em; color: var(--white);
-    }
-    .footer-col h5 {
-      font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.25em;
-      text-transform: uppercase; color: var(--gray-deep); margin-bottom: 20px;
-    }
+    footer { background: var(--black); border-top: 1px solid var(--dark-2); padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 64px) clamp(32px, 4vw, 48px); }
+    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: clamp(40px, 6vw, 64px); gap: 40px; flex-wrap: wrap; }
+    .footer-logo-wrap { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col h5 { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray-deep); margin-bottom: 20px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-col ul li a {
-      font-family: var(--font-sans); font-size: 13px; font-weight: 300;
-      color: var(--gray-mid); transition: color 0.3s; letter-spacing: 0.03em;
-    }
+    .footer-col ul li a { font-family: var(--font-sans); font-size: 13px; font-weight: 300; color: var(--gray-mid); transition: color 0.3s; letter-spacing: 0.03em; }
     .footer-col ul li a:hover { color: var(--white); }
-    .footer-bottom {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-top: 32px; border-top: 1px solid var(--dark-2); flex-wrap: wrap; gap: 16px;
-    }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 32px; border-top: 1px solid var(--dark-2); flex-wrap: wrap; gap: 16px; }
     .footer-copy { font-family: var(--font-sans); font-size: 11px; color: var(--gray-deep); letter-spacing: 0.05em; }
     .footer-socials { display: flex; gap: 24px; }
-    .footer-socials a {
-      font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--gray-deep); transition: color 0.3s;
-    }
+    .footer-socials a { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-deep); transition: color 0.3s; }
     .footer-socials a:hover { color: var(--gray-light); }
 
     /* RESPONSIVE */
@@ -664,6 +373,57 @@
 
 <body>
 
+  <!-- SVG LOGO DEFINITION — reutilizable en todo el documento -->
+  <!-- Logo Nuravelle: N botánica + arco + tipografía -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="nuravelle-logo-dark" viewBox="0 0 160 90">
+        <!-- Arco circular -->
+        <path d="M 80 8 m -38 0 a 38 38 0 1 1 76 0" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+        <!-- Puntos decorativos -->
+        <circle cx="111" cy="13" r="1.2" fill="rgba(255,255,255,0.4)"/>
+        <circle cx="115" cy="10" r="0.8" fill="rgba(255,255,255,0.3)"/>
+        <!-- N serif -->
+        <text x="56" y="52" font-family="Cormorant Garamond, Georgia, serif" font-size="42" font-weight="300" fill="white" letter-spacing="-1">N</text>
+        <!-- Rama botánica que sale de la N -->
+        <g transform="translate(76, 28)" stroke="#8A9E7A" stroke-width="1" fill="none">
+          <!-- Tallo principal -->
+          <path d="M 0 20 Q 8 10 14 2" stroke-width="0.9"/>
+          <!-- Hoja grande izquierda -->
+          <path d="M 5 14 Q 0 8 4 4 Q 8 8 5 14" fill="#6B7F5E" stroke="none"/>
+          <!-- Hoja grande derecha -->
+          <path d="M 8 10 Q 14 6 16 10 Q 12 14 8 10" fill="#6B7F5E" stroke="none"/>
+          <!-- Hoja pequeña -->
+          <path d="M 11 5 Q 15 2 16 6 Q 13 8 11 5" fill="#8A9E7A" stroke="none"/>
+          <!-- Ramita secundaria izquierda -->
+          <path d="M 3 16 Q -2 12 -1 8" stroke-width="0.7"/>
+          <path d="M -1 8 Q -5 5 -2 3 Q 1 6 -1 8" fill="#6B7F5E" stroke="none"/>
+        </g>
+        <!-- Texto NURAVELLE -->
+        <text x="80" y="76" font-family="DM Sans, system-ui, sans-serif" font-size="9" font-weight="400" fill="rgba(255,255,255,0.8)" letter-spacing="4" text-anchor="middle">NURAVELLE</text>
+        <!-- Línea bajo texto -->
+        <line x1="40" y1="80" x2="120" y2="80" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+      </symbol>
+
+      <symbol id="nuravelle-logo-light" viewBox="0 0 160 90">
+        <path d="M 80 8 m -38 0 a 38 38 0 1 1 76 0" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="0.8"/>
+        <circle cx="111" cy="13" r="1.2" fill="rgba(107,127,94,0.6)"/>
+        <circle cx="115" cy="10" r="0.8" fill="rgba(107,127,94,0.4)"/>
+        <text x="56" y="52" font-family="Cormorant Garamond, Georgia, serif" font-size="42" font-weight="300" fill="#1A1A1A" letter-spacing="-1">N</text>
+        <g transform="translate(76, 28)" stroke="#8A9E7A" stroke-width="1" fill="none">
+          <path d="M 0 20 Q 8 10 14 2" stroke-width="0.9"/>
+          <path d="M 5 14 Q 0 8 4 4 Q 8 8 5 14" fill="#6B7F5E" stroke="none"/>
+          <path d="M 8 10 Q 14 6 16 10 Q 12 14 8 10" fill="#6B7F5E" stroke="none"/>
+          <path d="M 11 5 Q 15 2 16 6 Q 13 8 11 5" fill="#8A9E7A" stroke="none"/>
+          <path d="M 3 16 Q -2 12 -1 8" stroke-width="0.7"/>
+          <path d="M -1 8 Q -5 5 -2 3 Q 1 6 -1 8" fill="#6B7F5E" stroke="none"/>
+        </g>
+        <text x="80" y="76" font-family="DM Sans, system-ui, sans-serif" font-size="9" font-weight="400" fill="rgba(0,0,0,0.5)" letter-spacing="4" text-anchor="middle">NURAVELLE</text>
+        <line x1="40" y1="80" x2="120" y2="80" stroke="rgba(0,0,0,0.1)" stroke-width="0.5"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <!-- NAV -->
   <nav id="nav" role="navigation" aria-label="Navegación principal">
     <ul class="nav-links" role="list">
@@ -671,7 +431,11 @@
       <li><a href="#products">Colecciones</a></li>
       <li><a href="#ritual">Ritual</a></li>
     </ul>
-    <a href="#hero" class="nav-logo" aria-label="AURÉA — Inicio">AURÉA</a>
+
+    <a href="#hero" class="nav-logo" aria-label="NURAVELLE — Inicio">
+      <svg width="120" height="68" aria-hidden="true"><use href="#nuravelle-logo-dark"/></svg>
+    </a>
+
     <div class="nav-right">
       <a href="#products" class="nav-boutique">Boutique</a>
       <a href="#" class="nav-lang">ES</a>
@@ -685,13 +449,9 @@
 
   <!-- HERO -->
   <section id="hero" role="banner">
-    <img
-      class="hero-img"
+    <img class="hero-img"
       src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1800&q=85&fit=crop"
-      alt="AURÉA — Belleza atemporal"
-      loading="eager"
-      fetchpriority="high"
-    >
+      alt="NURAVELLE — Belleza atemporal" loading="eager" fetchpriority="high">
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-circle" aria-hidden="true"></div>
     <div class="hero-circle-2" aria-hidden="true"></div>
@@ -699,11 +459,10 @@
     <div class="hero-content">
       <p class="hero-eyebrow">Casa de Belleza — Madrid</p>
       <h1 class="hero-title">La belleza nace<br>del silencio.</h1>
-      <p class="hero-caption">AURÉA — Casa de Belleza de Lujo</p>
+      <p class="hero-caption">NURAVELLE — Casa de Belleza de Lujo</p>
       <div class="hero-divider" aria-hidden="true"></div>
       <a href="#products" class="hero-cta" role="button">
-        Descubrir la Colección
-        <span class="arrow" aria-hidden="true">→</span>
+        Descubrir la Colección <span class="arrow" aria-hidden="true">→</span>
       </a>
     </div>
 
@@ -716,19 +475,14 @@
   <!-- PHILOSOPHY -->
   <section id="philosophy" aria-label="Nuestra filosofía">
     <div class="philosophy-image-wrap reveal">
-      <img
-        src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1000&q=85&fit=crop"
-        alt="Filosofía AURÉA — artesanía y precisión"
-        loading="lazy"
-      >
+      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1000&q=85&fit=crop"
+        alt="Filosofía NURAVELLE" loading="lazy">
     </div>
     <div class="philosophy-text">
       <p class="section-label reveal">I — Nuestra Filosofía</p>
-      <blockquote class="philosophy-quote reveal delay-1">
-        Cada fórmula es<br>una obra de arte.
-      </blockquote>
+      <blockquote class="philosophy-quote reveal delay-1">Cada fórmula es<br>una obra de arte.</blockquote>
       <p class="philosophy-body reveal delay-2">
-        En AURÉA creemos que la verdadera belleza nace de la paciencia,
+        En NURAVELLE creemos que la verdadera belleza nace de la paciencia,
         la maestría artesanal y una selección rigurosa de ingredientes
         excepcionales. Cada frasco encierra años de investigación, manos
         de artesanos y la promesa de una transformación silenciosa pero profunda.
@@ -747,20 +501,14 @@
     <div class="featured-rule reveal"><span>Edición Firma</span></div>
     <p class="featured-subtitle reveal">Crema de Prestigio</p>
     <h2 class="featured-title reveal delay-1">La Crème Essentielle</h2>
-
     <div class="featured-image-wrap reveal delay-2">
-      <img
-        class="featured-image"
+      <img class="featured-image"
         src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=85&fit=crop"
-        alt="La Crème Essentielle — AURÉA"
-        loading="lazy"
-      >
+        alt="La Crème Essentielle — NURAVELLE" loading="lazy">
     </div>
-
     <p class="featured-desc reveal delay-2">
       Nuestra fórmula estrella, enriquecida con oro de 24 quilates y caviar siberiano,
-      ofrece una regeneración celular profunda para una piel de luminosidad
-      y densidad incomparables.
+      ofrece una regeneración celular profunda para una piel de luminosidad y densidad incomparables.
     </p>
     <p class="featured-price reveal delay-3">€ 485</p>
     <div class="reveal delay-3">
@@ -779,33 +527,21 @@
         <div class="ingredient-num">01</div>
         <p class="ingredient-name">Oro de 24 Quilates</p>
         <p class="ingredient-origin">— Suiza</p>
-        <p class="ingredient-desc">
-          Reconocido desde la Antigüedad por sus propiedades regeneradoras,
-          el oro puro estimula la producción de colágeno y devuelve a la piel
-          su luminosidad y firmeza original.
-        </p>
+        <p class="ingredient-desc">Reconocido desde la Antigüedad por sus propiedades regeneradoras, el oro puro estimula la producción de colágeno y devuelve a la piel su luminosidad y firmeza original.</p>
         <div class="ingredient-line"></div>
       </div>
       <div class="ingredient-item reveal delay-1">
         <div class="ingredient-num">02</div>
         <p class="ingredient-name">Rosa de Damasco</p>
         <p class="ingredient-origin">— Bulgaria</p>
-        <p class="ingredient-desc">
-          Recogida al amanecer en los valles búlgaros, la rosa de Damasco
-          aporta una hidratación profunda y un perfume natural de una
-          complejidad sin igual.
-        </p>
+        <p class="ingredient-desc">Recogida al amanecer en los valles búlgaros, la rosa de Damasco aporta una hidratación profunda y un perfume natural de una complejidad sin igual.</p>
         <div class="ingredient-line"></div>
       </div>
       <div class="ingredient-item reveal delay-2">
         <div class="ingredient-num">03</div>
         <p class="ingredient-name">Caviar Siberiano</p>
         <p class="ingredient-origin">— Siberia</p>
-        <p class="ingredient-desc">
-          Rico en aminoácidos y omega-3, el extracto de caviar nutre las
-          capas profundas de la piel, reafirmando el tejido cutáneo
-          y borrando las señales del tiempo.
-        </p>
+        <p class="ingredient-desc">Rico en aminoácidos y omega-3, el extracto de caviar nutre las capas profundas de la piel, reafirmando el tejido cutáneo y borrando las señales del tiempo.</p>
         <div class="ingredient-line"></div>
       </div>
     </div>
@@ -819,15 +555,11 @@
       <p class="reveal delay-2">Fórmulas de excepción para una belleza atemporal</p>
     </div>
     <div class="products-grid">
-
       <article class="product-card reveal">
         <div class="product-image-wrap">
-          <img
-            class="product-image"
-            src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=85&fit=crop&crop=center"
-            alt="La Crème Essentielle"
-            loading="lazy"
-          >
+          <img class="product-image"
+            src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=85&fit=crop"
+            alt="La Crème Essentielle" loading="lazy">
           <span class="product-badge">Firma</span>
         </div>
         <div class="product-info">
@@ -837,18 +569,15 @@
         </div>
         <div class="product-footer">
           <span class="product-price">€ 485</span>
-          <button class="product-add" aria-label="Añadir La Crème Essentielle">Añadir</button>
+          <button class="product-add">Añadir</button>
         </div>
       </article>
 
       <article class="product-card reveal delay-1">
         <div class="product-image-wrap">
-          <img
-            class="product-image"
-            src="https://images.unsplash.com/photo-1571781926291-c89ee2a4f09b?w=600&q=85&fit=crop&crop=center"
-            alt="L'Huile Lumière"
-            loading="lazy"
-          >
+          <img class="product-image"
+            src="https://images.unsplash.com/photo-1571781926291-c89ee2a4f09b?w=600&q=85&fit=crop"
+            alt="L'Huile Lumière" loading="lazy">
         </div>
         <div class="product-info">
           <p class="product-category">Aceite precioso</p>
@@ -857,18 +586,15 @@
         </div>
         <div class="product-footer">
           <span class="product-price">€ 320</span>
-          <button class="product-add" aria-label="Añadir L'Huile Lumière">Añadir</button>
+          <button class="product-add">Añadir</button>
         </div>
       </article>
 
       <article class="product-card reveal delay-2">
         <div class="product-image-wrap">
-          <img
-            class="product-image"
-            src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&q=85&fit=crop&crop=center"
-            alt="Le Sérum Absolu"
-            loading="lazy"
-          >
+          <img class="product-image"
+            src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&q=85&fit=crop"
+            alt="Le Sérum Absolu" loading="lazy">
           <span class="product-badge">Nuevo</span>
         </div>
         <div class="product-info">
@@ -878,19 +604,18 @@
         </div>
         <div class="product-footer">
           <span class="product-price">€ 540</span>
-          <button class="product-add" aria-label="Añadir Le Sérum Absolu">Añadir</button>
+          <button class="product-add">Añadir</button>
         </div>
       </article>
-
     </div>
   </section>
 
   <!-- RITUAL -->
-  <section id="ritual" aria-label="El Ritual AURÉA">
+  <section id="ritual" aria-label="El Ritual NURAVELLE">
     <div class="ritual-text">
       <div>
         <p class="section-label reveal" style="color:var(--gray-deep)">IV — El Cuidado</p>
-        <h2 class="ritual-title reveal delay-1">El Ritual<br>AURÉA</h2>
+        <h2 class="ritual-title reveal delay-1">El Ritual<br>NURAVELLE</h2>
       </div>
       <div class="ritual-steps">
         <div class="ritual-step reveal delay-1">
@@ -915,17 +640,14 @@
           </div>
         </div>
       </div>
-      <a href="#" class="btn-outline reveal delay-4" style="width:fit-content;" role="button">
+      <a href="#" class="btn-outline reveal delay-4" style="width:fit-content;">
         Descubrir el ritual completo <span aria-hidden="true">→</span>
       </a>
     </div>
     <div class="ritual-image-wrap">
-      <img
-        class="ritual-image"
-        src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1000&q=85&fit=crop&crop=center"
-        alt="El Ritual AURÉA — experiencia sensorial"
-        loading="lazy"
-      >
+      <img class="ritual-image"
+        src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1000&q=85&fit=crop"
+        alt="El Ritual NURAVELLE" loading="lazy">
     </div>
   </section>
 
@@ -935,7 +657,7 @@
       <span class="quote-mark reveal" aria-hidden="true">"</span>
       <blockquote class="testimonial-text reveal delay-1">
         Una textura de una fineza absoluta. Tras tres semanas, mi piel
-        ha recuperado una luminosidad que creía perdida. AURÉA ha redefinido
+        ha recuperado una luminosidad que creía perdida. NURAVELLE ha redefinido
         lo que significa cuidarse de verdad.
       </blockquote>
       <div class="testimonial-rule reveal delay-2" aria-hidden="true"></div>
@@ -951,40 +673,22 @@
     <div class="gallery-header">
       <div>
         <p class="section-label reveal" style="color:var(--gray-deep)">V — Editorial</p>
-        <h2 class="reveal delay-1">El Universo AURÉA</h2>
+        <h2 class="reveal delay-1">El Universo NURAVELLE</h2>
       </div>
-      <a href="#" class="text-link reveal" style="color:var(--gray-light);border-color:var(--gray-deep);">
-        Ver todo <span aria-hidden="true">→</span>
-      </a>
+      <a href="#" class="text-link reveal" style="color:var(--gray-light);border-color:var(--gray-deep);">Ver todo <span aria-hidden="true">→</span></a>
     </div>
     <div class="gallery-grid">
       <div class="gallery-item reveal">
-        <img
-          src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=85&fit=crop&crop=center"
-          alt="Editorial AURÉA 1"
-          loading="lazy"
-        >
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=85&fit=crop" alt="Editorial 1" loading="lazy">
       </div>
       <div class="gallery-item reveal delay-1">
-        <img
-          src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=900&q=85&fit=crop&crop=top"
-          alt="Editorial AURÉA 2"
-          loading="lazy"
-        >
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=900&q=85&fit=crop&crop=top" alt="Editorial 2" loading="lazy">
       </div>
       <div class="gallery-item reveal delay-2">
-        <img
-          src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=700&q=85&fit=crop&crop=face"
-          alt="Editorial AURÉA 3"
-          loading="lazy"
-        >
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=700&q=85&fit=crop&crop=face" alt="Editorial 3" loading="lazy">
       </div>
       <div class="gallery-item reveal delay-3">
-        <img
-          src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=85&fit=crop&crop=center"
-          alt="Editorial AURÉA 4"
-          loading="lazy"
-        >
+        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=85&fit=crop" alt="Editorial 4" loading="lazy">
       </div>
     </div>
   </section>
@@ -995,16 +699,12 @@
       <p class="newsletter-eyebrow reveal">Círculo Privado</p>
       <h2 class="newsletter-title reveal delay-1">El Acceso Exclusivo</h2>
       <p class="newsletter-sub reveal delay-2">
-        Únete al círculo AURÉA — ediciones limitadas,
-        invitaciones privadas, fórmulas en primicia.
+        Únete al círculo NURAVELLE — ediciones limitadas, invitaciones privadas, fórmulas en primicia.
       </p>
-      <form class="newsletter-form reveal delay-3" aria-label="Formulario de suscripción" onsubmit="return false;">
-        <label for="newsletter-email" class="sr-only">Dirección de correo electrónico</label>
-        <input
-          type="email" id="newsletter-email" class="newsletter-input"
-          placeholder="Tu dirección de correo" autocomplete="email" aria-required="true"
-        >
-        <button type="submit" class="newsletter-submit" aria-label="Suscribirse">Unirse →</button>
+      <form class="newsletter-form reveal delay-3" onsubmit="return false;">
+        <label for="newsletter-email" class="sr-only">Correo electrónico</label>
+        <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Tu dirección de correo" autocomplete="email">
+        <button type="submit" class="newsletter-submit">Unirse →</button>
       </form>
       <p class="newsletter-gdpr reveal delay-4">
         Al suscribirte aceptas nuestra <a href="#">política de privacidad</a>. Baja cuando quieras.
@@ -1015,10 +715,14 @@
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="footer-top">
-      <div><p class="footer-logo">AURÉA</p></div>
+      <div class="footer-logo-wrap">
+        <svg width="130" height="74" aria-label="NURAVELLE">
+          <use href="#nuravelle-logo-dark"/>
+        </svg>
+      </div>
       <div class="footer-col">
         <h5>La Maison</h5>
-        <ul role="list">
+        <ul>
           <li><a href="#">Nuestra historia</a></li>
           <li><a href="#">Saber hacer</a></li>
           <li><a href="#">Compromisos</a></li>
@@ -1027,7 +731,7 @@
       </div>
       <div class="footer-col">
         <h5>Colecciones</h5>
-        <ul role="list">
+        <ul>
           <li><a href="#">La Crème Essentielle</a></li>
           <li><a href="#">L'Huile Lumière</a></li>
           <li><a href="#">Le Sérum Absolu</a></li>
@@ -1036,7 +740,7 @@
       </div>
       <div class="footer-col">
         <h5>Servicio</h5>
-        <ul role="list">
+        <ul>
           <li><a href="#">Envíos y Devoluciones</a></li>
           <li><a href="#">Boutiques</a></li>
           <li><a href="#">Contacto</a></li>
@@ -1045,11 +749,11 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2024 AURÉA Casa de Belleza. Todos los derechos reservados.</p>
+      <p class="footer-copy">© 2024 NURAVELLE Casa de Belleza. Todos los derechos reservados.</p>
       <nav class="footer-socials" aria-label="Redes sociales">
-        <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="Pinterest">Pinterest</a>
-        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">Facebook</a>
       </nav>
     </div>
   </footer>
@@ -1061,7 +765,7 @@
       nav.classList.toggle('scrolled', window.scrollY > 80);
     }, { passive: true });
 
-    // Hero load animation
+    // Hero load
     window.addEventListener('load', () => {
       setTimeout(() => document.getElementById('hero').classList.add('hero-loaded'), 200);
     });
@@ -1080,30 +784,30 @@
 
     // Hero parallax
     const heroContent = document.querySelector('.hero-content');
-    const heroImg     = document.querySelector('.hero-img');
+    const heroImg = document.querySelector('.hero-img');
     const c1 = document.querySelector('.hero-circle');
     const c2 = document.querySelector('.hero-circle-2');
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
       if (y < window.innerHeight) {
         heroContent.style.transform = `translateY(${y * 0.25}px)`;
-        heroImg.style.transform     = `scale(1.06) translateY(${y * 0.15}px)`;
+        heroImg.style.transform = `scale(1.06) translateY(${y * 0.15}px)`;
         c1.style.transform = `translate(-50%, calc(-50% + ${y * 0.08}px))`;
         c2.style.transform = `translate(-50%, calc(-50% + ${y * 0.05}px))`;
       }
     }, { passive: true });
 
     // Newsletter feedback
-    const form   = document.querySelector('.newsletter-form');
-    const input  = document.getElementById('newsletter-email');
+    const form = document.querySelector('.newsletter-form');
+    const input = document.getElementById('newsletter-email');
     const submit = document.querySelector('.newsletter-submit');
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', e => {
       e.preventDefault();
       if (!input.value || !input.value.includes('@')) return;
       submit.textContent = 'Bienvenida ✓';
       submit.style.color = 'var(--silver)';
       input.value = '';
-      input.placeholder = 'Gracias por unirte al círculo AURÉA.';
+      input.placeholder = 'Gracias por unirte al círculo NURAVELLE.';
       input.disabled = true;
       submit.disabled = true;
     });
